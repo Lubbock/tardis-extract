@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.7.3'
+}
+
+group 'org.lame'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.antlr:antlr4-runtime:4.9.1'
+    compile 'commons-io:commons-io:2.6'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+    annotationProcessor 'org.projectlombok:lombok:1.18.18'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    compile 'com.google.guava:guava:26.0-jre'
+    compile 'org.freemarker:freemarker:2.3.20'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version '2020.2'
+}
+patchPluginXml {
+    changeNotes """
+      增加实体常量抽取.<br>
+      <em>在web项目的实体类中，右键点击generate 开始生成对应的常量代码</em>"""
+}
+
+publishPlugin{
+    channels='Stable'
+    token=''
+}
+

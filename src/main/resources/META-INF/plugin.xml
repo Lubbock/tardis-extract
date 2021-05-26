@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>org.lame.tardis-extract</id>
+    <name>tardis-extract</name>
+    <vendor email="lostbread@126.com" url="http://www.guoxiujun.com">lostbread</vendor>
+
+    <description><![CDATA[ 常量抽取<br>
+   <em>在web项目的实体类中，右键点击generate 开始生成对应的常量代码</em>
+   自动的把实体的字段，按照驼峰命名法的规则，进行修改，生成对应的常量如
+   public class TestEntityConstant {
+    //命名空间
+    public static final String ID = "id" ;
+    public static final String USER_NAME = "user_name" ;
+}
+
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="com.lame.tardis" class="com.lame.TardisAiExtract" text="tardis-extract" description="生成对应的实体常量">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl 4"/>
+        </action>
+    </actions>
+</idea-plugin>
