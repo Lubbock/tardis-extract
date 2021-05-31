@@ -24,12 +24,13 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2020.2'
+    version '2020.3'
 }
 patchPluginXml {
     changeNotes """
-      增加实体常量抽取.<br>
-      <em>在web项目的实体类中，右键点击generate 开始生成对应的常量代码</em>"""
+     When using the Alibaba code specification, magic numbers are not required. When using mybatis plus, querywrapper will inevitably use entity name, 
+     so this plug-in is written to extract entity constant from entity field name according to mybatis plus rules
+"""
 }
 
 publishPlugin{
